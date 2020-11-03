@@ -13,14 +13,14 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-static void	ft_putnbr(long nbr, int base_len, char *base)
+void	ft_putnbr(long nbr, int base_len, char *base)
 {
 	if (nbr >= base_len)
 		ft_putnbr(nbr / base_len, base_len, base);
 	write(1, &base[nbr % base_len], 1);
 }
 
-static int	ft_nbrlen(long nbr, int base_len)
+int	ft_nbrlen(long nbr, int base_len)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ static int	ft_nbrlen(long nbr, int base_len)
 	return (i);
 }
 
-int			ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
 	char	*str;
